@@ -72,9 +72,9 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
-    'lib.yellowant_api',
+    'yellowant_api',
 
-    'lib.web',
+    'web',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -94,7 +94,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'yellowant_zoho_people.urls'
+ROOT_URLCONF = 'yellowant_azurevm.urls'
 
 TEMPLATES = [
     {
@@ -112,7 +112,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'yellowant_zoho_people.wsgi.application'
+WSGI_APPLICATION = 'yellowant_azurevm.wsgi.application'
 
 
 # Database
@@ -135,7 +135,7 @@ else:
         # }
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'zoho_people1',
+            'NAME': 'azure',
             'USER': "root",
             'PASSWORD': "root1234",
             'HOST': "localhost",
