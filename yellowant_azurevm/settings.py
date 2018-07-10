@@ -42,7 +42,7 @@ YA_REDIRECT_URL = BASE_URL + "/yellowant-oauth-redirect/"
 # YA_VERIFICATION_TOKEN = os.environ.get("YA_VERIFICATION_TOKEN",
 #                                        "6G8FMSWWDq8dsAPy2zSd6fhsDOWUUiP7IDY3LPc2g25OTUGi2gplh3P0x62L2ix1eMPCXAxjzwonxwakipddY0MK7b0auQvN7bmOZ8iLio1IfmjbK94Fwrx5PgMWhwaz")
 #
-data = open('yellowant_app_credentials.json').read()
+data = open('../yellowant_app_credentials.json').read()
 data_json = json.loads(data)
 
 YA_CLIENT_ID = str(data_json['client_id'])
