@@ -8,7 +8,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DJANGO_ENV = os.environ.get("DJANGO_ENV", "heroku")
 
 # get app credentials from json
-CREDENTIALS = open('yellowant_app_credentials.json').read()
+CREDENTIALS = open(BASE_DIR + '../yellowant_app_credentials.json').read()
 CREDENTIALS = json.loads(CREDENTIALS)
 
 ### YellowAnt specific settings ###
