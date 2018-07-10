@@ -2,5 +2,11 @@ yellowant
 django
 mysqlclient
 azure
-haikunator
-
+haikunator==2.1.0
+gunicorn
+psycopg2
+whitenoise==3.3.1
+requests==2.18.4
+requests-oauthlib==0.8.0
+dj-database-url==0.5.0
+oauthlib==2.0.7
