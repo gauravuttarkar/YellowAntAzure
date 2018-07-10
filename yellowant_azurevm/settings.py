@@ -62,7 +62,7 @@ SECRET_KEY = '#x9q+c*t9$=buk$i@m&6e+k@m(q@uds0gd=9=3cej6u#_u=m*%'
 DEBUG = True
 
 # SECURITY WARNING: remove wildcard condition from ALLOWED_HOSTS
-ALLOWED_HOSTS = ["*","{}.herokuapp.com".format(app_name)]
+ALLOWED_HOSTS = ["*"]
 
 
 
@@ -115,21 +115,31 @@ WSGI_APPLICATION = 'yellowant_azurevm.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'azure',
-        'USER': "root",
-        'PASSWORD': "root1234",
-        'HOST': "localhost",
-        'PORT': '',
-    }
-}
+if DJANGO_ENV == "heroku":
+    import dj_database_url
 
-import dj_database_url
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
-DATABASES['default']['CONN_MAX_AGE'] = 500
+    DATABASES = {
+        'default': dj_database_url.config(
+            default='sqlite:////{0}'.format(
+                os.path.join(BASE_DIR, 'db.sqlite3'))
+        )
+    }
+else:
+    DATABASES = {
+        # 'default': {
+        #     'ENGINE': 'django.db.backends.sqlite3',
+        #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # }
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'azure',
+            'USER': "root",
+            'PASSWORD': "root1234",
+            'HOST': "localhost",
+            'PORT': '',
+        }
+    }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
